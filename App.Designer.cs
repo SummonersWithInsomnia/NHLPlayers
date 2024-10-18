@@ -69,6 +69,7 @@
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.statusStrip);
             this.Name = "App";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NHL Player Viewer";
             this.statusStrip.ResumeLayout(false);
