@@ -58,6 +58,7 @@
         <Compile Include="Filter.Designer.cs">
           <DependentUpon>Filter.cs</DependentUpon>
         </Compile>
+        <Compile Include="Player.cs" />
         <Compile Include="Program.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <EmbeddedResource Include="App.resx">
