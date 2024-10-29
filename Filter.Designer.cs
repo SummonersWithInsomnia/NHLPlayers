@@ -63,6 +63,7 @@ namespace NHLPlayers
             this.tbFilters.Name = "tbFilters";
             this.tbFilters.Size = new System.Drawing.Size(700, 200);
             this.tbFilters.TabIndex = 2;
+            this.tbFilters.TextChanged += new System.EventHandler(this.tbFilters_TextChanged);
             // 
             // tbOrders
             // 
@@ -72,6 +73,7 @@ namespace NHLPlayers
             this.tbOrders.Name = "tbOrders";
             this.tbOrders.Size = new System.Drawing.Size(700, 200);
             this.tbOrders.TabIndex = 3;
+            this.tbOrders.TextChanged += new System.EventHandler(this.tbOrders_TextChanged);
             // 
             // Filter
             // 
@@ -87,6 +89,7 @@ namespace NHLPlayers
             this.Name = "Filter";
             this.ShowIcon = false;
             this.Text = "Filter";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Filter_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
