@@ -74,7 +74,7 @@ namespace NHLPlayers
             {
                 _resultList = new List<Player>(_resultList.AsQueryable()
                     .Where(filterLinqCmdCombined, flc.Args.ToArray()).ToList());
-                _parent.SetTableData(new List<Player>(_resultList));
+                _parent.SetTableData(new SortableList<Player>(_resultList));
             }
             
             string orderLinqCmdCombined = "";
@@ -98,7 +98,7 @@ namespace NHLPlayers
             {
                 _resultList = new List<Player>(_resultList.AsQueryable()
                     .OrderBy(orderLinqCmdCombined).ToList());
-                _parent.SetTableData(new List<Player>(_resultList));
+                _parent.SetTableData(new SortableList<Player>(_resultList));
             }
             
         }
@@ -284,7 +284,18 @@ namespace NHLPlayers
 
         private void Filter_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _parent.SetTableData(new List<Player>(_originalList));
+            _parent.SetTableData(new SortableList<Player>(_originalList));
+        }
+        
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F3)
+            {
+                Hide();
+                return true;
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }
