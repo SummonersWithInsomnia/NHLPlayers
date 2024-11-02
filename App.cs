@@ -39,7 +39,7 @@ namespace NHLPlayers
         }
 
         // Set the data source of the data grid view
-        public void SetTableData(List<Player> players)
+        public void SetTableData(SortableList<Player> players)
         {
             if (dataGridView.InvokeRequired)
             {
