@@ -50,6 +50,33 @@ namespace NHLPlayers
                 dataGridView.DataSource = null;
                 dataGridView.DataSource = players;
             }
+
+        }
+        // ---- Gary Simwawa's Code ----
+        //To store the sorting order (ASC or DESC) on each column in the grid view
+        private Dictionary<DataGridViewColumn, SortOrder> _columnSortOrder = new Dictionary<DataGridViewColumn, SortOrder>();
+
+        private void dataGridView_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewColumn column = dataGridView.Columns[e.ColumnIndex];
+
+            //Determine the sort order, switching to ASC and DESC every click
+            SortOrder sortOrder;
+            if (_columnSortOrder.ContainsKey(column))
+            {
+                sortOrder = _columnSortOrder[column] == SortOrder.Ascending ? SortOrder.Descending : SortOrder.Ascending;
+            }
+            else
+            {
+                sortOrder = SortOrder.Ascending;
+            }
+
+            //Update sort order for the column
+            _columnSortOrder[column] = sortOrder;
+
+            //Sort grid based on column and sorting order
+            dataGridView.Sort(column, sortOrder == SortOrder.Ascending
+                ? ListSortDirection.Ascending : ListSortDirection.Descending);
         }
     }
 }
