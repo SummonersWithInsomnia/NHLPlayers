@@ -78,5 +78,27 @@ namespace NHLPlayers
             dataGridView.Sort(column, sortOrder == SortOrder.Ascending
                 ? ListSortDirection.Ascending : ListSortDirection.Descending);
         }
+
+        private void HandleFilterForm()
+        {
+            // Create the filter form if it doesn't exist 
+            if (_filter == null || _filter.IsDisposed)
+            {
+                _filter = new Filter(parent:this, _headers, _players);
+            }
+
+            // Show the filter form if it's not visible
+            if (!_filter.Visible)
+            {
+                _filter.Show(owner:this);
+                _filter.BringToFront();
+            }
+
+            // Hide the filter form if it's already visible
+            else
+            {
+                _filter.Hide();
+            }
+        }
     }
 }
