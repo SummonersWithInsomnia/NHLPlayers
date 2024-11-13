@@ -52,8 +52,9 @@ namespace NHLPlayers
             }
 
         }
-        // ---- Gary Simwawa's Code ----
-        //To store the sorting order (ASC or DESC) on each column in the grid view
+        
+        // Gary Simwawa's Code
+        // To store the sorting order (ASC or DESC) on each column in the grid view
         private Dictionary<DataGridViewColumn, SortOrder> _columnSortOrder = new Dictionary<DataGridViewColumn, SortOrder>();
 
         private void dataGridView_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -78,7 +79,8 @@ namespace NHLPlayers
             dataGridView.Sort(column, sortOrder == SortOrder.Ascending
                 ? ListSortDirection.Ascending : ListSortDirection.Descending);
         }
-
+        
+        // Lovely's
         private void HandleFilterForm()
         {
             // Create the filter form if it doesn't exist 
@@ -99,6 +101,20 @@ namespace NHLPlayers
             {
                 _filter.Hide();
             }
+        }
+
+        // Daniel's Part
+        // method to handle keyboard shortcuts
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F3)
+            {
+                HandleFilterForm(); // this handles the filter form
+                return true; // Indicate method has been called
+            }
+
+            // base method for other key events
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }
