@@ -78,5 +78,18 @@ namespace NHLPlayers
             dataGridView.Sort(column, sortOrder == SortOrder.Ascending
                 ? ListSortDirection.Ascending : ListSortDirection.Descending);
         }
+        //Daniel's Part
+        //method to handle keyboard shortcuts
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F3)
+            {
+                HandleFilterForm(); // this handles the filter form
+                return true; // Indicate method has been called
+            }
+
+            // base method for other key events
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }
