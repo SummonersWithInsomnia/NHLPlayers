@@ -41,7 +41,15 @@ namespace NHLPlayers
         private void tbOrders_TextChanged(object sender, EventArgs e)
         {
             _orders = tbOrders.Text;
-            getResult();
+            
+            // Ignore the errors when the user inputs wrong headers
+            try
+            {
+                getResult();
+            }
+            catch (Exception exception)
+            {
+            }
         }
 
         // Get the result by using the filters and orders
